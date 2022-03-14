@@ -5,13 +5,12 @@ import AnecdoteService from "../services/AnecdoteService"
 
 const AnecdoteForm = () => {
     const dispatch = useDispatch()
+    
     const addAnecdote = async (event) => {
         event.preventDefault()
         const content = event.target.content.value
-        const newDote = await AnecdoteService.createNew(content)
-        console.log(newDote)
-        dispatch(newAnecdote(newDote))
-        dispatch(newNotification(newDote))
+        dispatch(newAnecdote(content))
+        dispatch(newNotification(content))
         event.target.content.value = ''
       }
     return(
