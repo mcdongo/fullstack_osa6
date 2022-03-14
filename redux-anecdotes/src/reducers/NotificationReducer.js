@@ -1,15 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-const startNotification = ""
+const startNotification = {message: '', timeleft: 0}
 const initialState = startNotification
 
 const notificationSlice = createSlice({
     name: 'notifications',
     initialState,
+    timeleft: 0,
     reducers: {
         newNotification(state, action) {
-            return (action.payload)
-        }
+            state.message = action.payload
+            state.timeleft = 5
+        },
     }
 })
 

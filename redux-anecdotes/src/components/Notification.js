@@ -8,10 +8,16 @@ const Notification = () => {
     padding: 10,
     borderWidth: 1
   }
+  
+  if (notification.message !== '' && notification.timeleft > 0) {
+    return (
+      <div style={style}>
+        You voted '{notification.message}'
+      </div>
+    )
+  }
   return (
-    <div style={style}>
-      {notification}
-    </div>
+    <div></div>
   )
 }
 
