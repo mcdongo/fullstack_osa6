@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { castVote } from "../reducers/anecdoteReducer";
-import { newNotification } from "../reducers/NotificationReducer";
+import { newNotification, newVoteNotification } from "../reducers/NotificationReducer";
 
 const AnecdoteList = () => {
     const anecdotes = useSelector(state => state.anecdotes)
@@ -13,7 +13,8 @@ const AnecdoteList = () => {
 
     const vote = (id, content) => {
         dispatch(castVote(id))
-        dispatch(newNotification(content))
+        console.log(content)
+        dispatch(newVoteNotification(content))
     }
 
     return (

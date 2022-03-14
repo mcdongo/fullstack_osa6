@@ -9,11 +9,15 @@ const notificationSlice = createSlice({
     timeleft: 0,
     reducers: {
         newNotification(state, action) {
-            state.message = action.payload
+            state.message = action.payload.content
             state.timeleft = 5
         },
+        newVoteNotification(state, action) {
+            state.message = action.payload
+            state.timeleft = 5
+        }
     }
 })
 
-export const { newNotification } = notificationSlice.actions
+export const { newNotification, newVoteNotification } = notificationSlice.actions
 export default notificationSlice.reducer
